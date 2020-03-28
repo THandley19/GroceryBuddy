@@ -3,7 +3,8 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "node": true
+    "node": true,
+    "jquery": true
   },
 
   "plugins": ["prettier"],
