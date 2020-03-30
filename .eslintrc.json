@@ -15,6 +15,15 @@
         "args": "none"
       }
     ],
+    "no-undef": "off",
+    "no-func-assign": "off",
+    "no-cond-assign": "off",
+    "no-self-assign": "off",
+    "getter-return": "off",
+    "no-redeclare": "off",
+    "no-control-regex": "off",
+    "no-useless-escape": "off",
+    "no-empty": "off",
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
