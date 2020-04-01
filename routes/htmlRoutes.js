@@ -27,7 +27,7 @@ module.exports = function(app) {
   });
   // Load products page
   app.get("/products", function(req, res) {
-    res.render("addProduct");
+    res.render("addProduct", {layout: "logged_in"});
   });
   app.get("/summary", function(req, res) {
     res.render("summary");
