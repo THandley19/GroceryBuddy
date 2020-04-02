@@ -12,7 +12,7 @@ VALUES ('Publix','12345 SW Anywhere St',,'Homestead','Fl',33033,'Robert Finkley'
     ('Aldi','12345 SW Anywhere St',,'Orlando','Fl',32789,'Jonathan Ruiz','jonathan@aldi.com','12345',3)
 ;
 
-INSERT INTO products (product_name, product_description, product_category, product_brand, product_vendor_id, product_price)
+INSERT INTO products (product_name, product_description, product_category, product_subcategory, product_brand, product_vendor_id, product_price)
 VALUES ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','1','5.49'),
 ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','2','6'),
 ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','3','4.99'),
