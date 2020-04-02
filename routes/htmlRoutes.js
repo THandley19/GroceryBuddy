@@ -28,12 +28,16 @@ module.exports = function(app) {
     // Creates user and saves to database
     .post(function(req, res) {
       db.User.create({
-        name: req.body.name,
-        streetAddress: req.body.streetAddress,
-        city: req.body.city,
-        state: req.body.state,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        user_address_street: req.body.user_address_street,
+        user_address_street2: req.body.user_address_street2,
+        user_address_city: req.body.user_address_city,
+        user_address_state: req.body.user_address_state,
+        user_address_zip: req.body.user_address_zip,
         email: req.body.email,
-        userPassword: req.body.password
+        is_vendor: req.body.is_vendor,
+        user_password: req.body.user_password
       })
         //
         .then(function(user) {
