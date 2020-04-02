@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "exampledb",
+    "database": "grocerybuddy",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "password",
-    "database": "testdb",
+    "database": "grocerybuddy",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
