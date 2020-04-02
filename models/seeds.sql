@@ -1,16 +1,18 @@
 USE grocerybuddy;
 
-INSERT INTO users (first_name, last_name, user_address_street, user_address_street2 user_address_city, user_address_state, user_address_zip, email, is_vendor, vendor_id, user_password)
-VALUES ('Robert', 'Finkley', '12345 SW Anywhere St',,'Homestead','Fl',33033,'rob@publix.com',1,1,'12345'),
-('Trevor', 'Handley', '12345 SW Anywhere St',,'Orlando','Fl',32789,'tevor@walmart.com',1,2,'12345'),
-('Jonathan', 'Ruiz', '12345 SW Anywhere St',,'Orlando','Fl',32789,'jonathan@publix.com',1,3,'12345'),
-;
+INSERT INTO users (first_name, last_name, user_address_street, user_address_street2, user_address_city, user_address_state, user_address_zip, email, is_vendor, vendor_id, user_password)
+VALUES ('Robert', 'Finkley', '12345 SW Anywhere St','','Homestead','Fl',33033,'rob@publix.com',0,null,'12345'),
+('Trevor', 'Handley', '12345 SW Anywhere St','','Orlando','Fl',32789,'tevor@walmart.com',0,null,'12345'),
+('Jonathan', 'Ruiz', '12345 SW Anywhere St','','Orlando','Fl',32789,'jonathan@publix.com',0,null,'12345');
 
-INSERT INTO vendors (vendor_name, vendor_address_street, vendor_address_street2 vendor_address_city, vendor_address_state, vendor_address_zip, vendor_contact_name, vendor_email, vendor_password, vendor_user_id)
-VALUES ('Publix','12345 SW Anywhere St',,'Homestead','Fl',33033,'Robert Finkley','rob@publix.com','12345',1),
-    ('Wal-Mart','12345 SW Anywhere St',,'Orlando','Fl',32789,'Trevor Handley','trevor@walmart.com','12345',2),
-    ('Aldi','12345 SW Anywhere St',,'Orlando','Fl',32789,'Jonathan Ruiz','jonathan@aldi.com','12345',3)
-;
+INSERT INTO vendors (vendor_name, vendor_address_street, vendor_address_street2, vendor_address_city, vendor_address_state, vendor_address_zip, vendor_contact_name, vendor_email, vendor_password, user_vendor_id)
+VALUES ('Publix','12345 SW Anywhere St','','Homestead','Fl',33033,'Robert Finkley','rob@publix.com','12345',1),
+    ('Wal-Mart','12345 SW Anywhere St','','Orlando','Fl',32789,'Trevor Handley','trevor@walmart.com','12345',2),
+    ('Aldi','12345 SW Anywhere St','','Orlando','Fl',32789,'Jonathan Ruiz','jonathan@aldi.com','12345',3);
+
+UPDATE users SET is_vendor = 1, vendor_id = 1 WHERE id = 1;
+UPDATE users SET is_vendor = 1, vendor_id = 2 WHERE id = 2;
+UPDATE users SET is_vendor = 1, vendor_id = 3 WHERE id = 3;
 
 INSERT INTO products (product_name, product_description, product_category, product_subcategory, product_brand, product_vendor_id, product_price)
 VALUES ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','1','5.49'),
@@ -69,7 +71,6 @@ VALUES ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','1','5.49'),
 ('Bumble Bee Premium Tuna in Water','','Meat','Canned','Bumble Bee','1','1.15'),
 ('Bumble Bee Premium Tuna in Water','','Meat','Canned','Bumble Bee','2','1.25'),
 ('Bumble Bee Premium Tuna in Water','','Meat','Canned','Bumble Bee','3','1.3'),
-('StarKist® StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','1','1.15'),
-('StarKist® StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','2','1.25'),
-('StarKist® StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','3','1.3')
-;
+('StarKist StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','1','1.15'),
+('StarKist StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','2','1.25'),
+('StarKist StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','3','1.3');
