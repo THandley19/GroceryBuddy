@@ -1,1 +1,51 @@
-<h1>This is the vendor sign up page</h1>
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h1 class="text-center mb-3">
+                <i class="fas fa-user-plus"></i> Register
+            </h1>
+            <form action="/user-sign-up" method="POST">
+                <div class="form-group">
+                    <label for="name">Name of Store</label>
+                    <input type="storeName" id="storeName" name="storeName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Street Address</label>
+                    <input type="streetAddress" id="streetAddress" name="streetAddress" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Street Address 2</label>
+                    <input type="streetAddress2" id="streetAddress2" name="streetAddress2" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">City</label>
+                    <input type="City" id="city" name="city" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">State</label>
+                    <input type="State" id="state" name="state" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Zipcode</label>
+                    <input type="Zipcode" id="zipcode" name="zipcode" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Contact Name</label>
+                    <input type="contactName" id="contactName" name="contactName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Contact Email</label>
+                    <input type="contactEmail" id="contactEmail" name="contactEmail" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Register
+                </button>
+            </form>
+            <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
+        </div>
+    </div>
+</div>

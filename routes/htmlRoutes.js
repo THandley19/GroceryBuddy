@@ -1,16 +1,5 @@
 var db = require("../models");
 
-// checking to see if session information and
-// user_sid exist, if they do then that means the user is logged in
-// and it redirects them to the user account page
-var sessionChecker = function(req, res, next) {
-  if (req.session.user && req.cookies.user_sid) {
-    res.redirect("/user-account");
-  } else {
-    next();
-  }
-};
-
 module.exports = function(app) {
   // Load home page
   app.get("/", function(req, res) {
@@ -19,40 +8,31 @@ module.exports = function(app) {
 
   // using .route we can call GET and POST requests on this instead
   //  of creating seperate app.get + app.post routes
-  app
-    .route("/user-sign-up")
-    // GET Route to render user sign up page
-    .get(function(req, res) {
-      res.render("userSignUp");
-    })
-    // Creates user and saves to database
-    .post(function(req, res) {
-      db.User.create({
-        userName: req.body.userName,
-        streetAddress: req.body.streetAddress,
-        city: req.body.city,
-        state: req.body.state,
-        email: req.body.email,
-        userPassword: req.body.userPassword
-      })
-        //
-        .then(function(user) {
-          // Passes the values of the user form to
-          // the session information
-          req.session.user = user.dataValues;
-          res.redirect("/user-account");
-        })
-        .catch(function(error) {
-          res.redirect("/user-sign-up");
-        });
+  app.get("/user-sign-up", function(req, res) {
+    res.render("userSignUp");
+  });
+  app.post("/user-sign-up", function(req, res) {
+    db.Users.create({
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      user_address_street: req.body.streetAddress,
+      user_address_street2: req.body.streetAddress2,
+      user_address_city: req.body.city,
+      user_address_state: req.body.state,
+      user_address_zip: req.body.zipcode,
+      email: req.body.email,
+      user_password: req.body.password
+    }).then(function(user) {
+      res.redirect("/");
     });
+  });
   // Load page with vendor sign up form
   app.get("/vendor-sign-up", function(req, res) {
     res.render("vendorSignUp");
   });
   app
     .route("/login")
-    .get(sessionChecker, function(req, res) {
+    .get(function(req, res) {
       res.render("login");
     })
     .post(function(req, res) {

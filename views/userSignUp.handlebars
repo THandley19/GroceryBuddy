@@ -6,12 +6,20 @@
             </h1>
             <form action="/user-sign-up" method="POST">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="name" id="name" name="name" class="form-control" />
+                    <label for="name">First Name</label>
+                    <input type="firstName" id="firstName" name="firstName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="name">Last Name</label>
+                    <input type="lastName" id="lastName" name="lastName" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label for="password">Street Address</label>
                     <input type="streetAddress" id="streetAddress" name="streetAddress" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Street Address 2</label>
+                    <input type="streetAddress2" id="streetAddress2" name="streetAddress2" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label for="password">City</label>
@@ -33,10 +41,6 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" class="form-control" />
                 </div>
-                {{!-- <div class="form-group">
-                    <label for="password2">Confirm Password</label>
-                    <input type="password" id="password2" name="password2" class="form-control" />
-                </div> --}}
                 <button type="submit" class="btn btn-primary btn-block">
                     Register
                 </button>
