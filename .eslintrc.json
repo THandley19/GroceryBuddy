@@ -4,7 +4,8 @@
     "browser": true,
     "commonjs": true,
     "node": true,
-    "jquery": true
+    "jquery": true,
+    "mocha": true
   },
 
   "plugins": ["prettier"],
