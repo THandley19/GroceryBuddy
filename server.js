@@ -4,7 +4,7 @@ var exphbs = require("express-handlebars");
 var cookieParser = require("cookie-parser");
 var db = require("./models");
 var session = require("express-session");
-var bcrypt = require("bcrypt");
+// var bcrypt = require("bcrypt");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(
   session({
     key: "user_sid",
-    secret: "somerandonstuffs",
+    secret: "randomgroceryitem",
     resave: false,
     saveUninitialized: false,
     cookie: {
