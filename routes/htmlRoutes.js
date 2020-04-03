@@ -1,4 +1,4 @@
-var db = require("../models");
+// var db = require("../models");
 
 module.exports = function(app) {
   // Load home page
@@ -27,7 +27,7 @@ module.exports = function(app) {
   });
   // Load products page
   app.get("/products", function(req, res) {
-    res.render("addProduct", {layout: "logged_in"});
+    res.render("addProduct", { layout: "logged_in" });
   });
   app.get("/summary", function(req, res) {
     res.render("summary");

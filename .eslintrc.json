@@ -11,7 +11,7 @@
   "plugins": ["prettier"],
   "rules": {
     "no-unused-vars": [
-      "off",
+      "error",
       {
         "args": "none"
       }
