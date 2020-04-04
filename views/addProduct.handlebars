@@ -5,8 +5,8 @@
         <form class="form">
           <div class="input-group">
             <label class="sr-only" for="search">Search</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="search" placeholder="Search for products">
-            <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i class="material-icons">search</i></button>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="searchValue" placeholder="Search for products">
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right" id="productSearch"><i class="material-icons">search</i></button>
           </div>
         </form>
       </div>
@@ -18,7 +18,7 @@
             <div class="card-header card-header-icon card-header-rose">
               <div class="card-icon">
                 <i class="fas fa-shopping-basket align-bottom"></i>
-                <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i class="material-icons">add</i></button>
+                <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i id="add" data-status="notAdded" class="material-icons">add</i></button>
               </div>
             </div>
             <div class="card-body">

@@ -18,4 +18,28 @@ module.exports = function(app) {
   //     res.json(dbExample);
   //   });
   // });
+  app.get("/api/products/:product", function(req, res) {
+    let searchTerm = "%" + req.params.product + "%";
+    db.Products.findAll({
+      where: {
+        [Op.substring]: [
+          { product_name: searchTerm },
+        ]
+      }
+    }).then(function(products) {
+      var context = {
+        allProducts: products.map(function(products) {
+          return {
+            id: products.id,
+            name: products.product_name,
+            category: products.product_category,
+            sub_category: products.product_subcategory,
+            brand: products.product_brand,
+            price: products.product_price
+          };
+        })
+      };
+      res.render("addProduct", { allProducts: context.allProducts });
+    });
+  });
 };
