@@ -44,25 +44,21 @@ module.exports = function(app) {
   });
   // Load products page
   app.get("/products", function(req, res) {
-<<<<<<< HEAD
     db.Products.findAll({}).then(function(products) {
       var context = {
         allProducts: products.map(function(products) {
           return {
             id: products.id,
-            name: products.product_name
+            name: products.product_name,
+            category: products.product_category,
+            sub_category: products.product_subcategory,
+            brand: products.product_brand,
+            price: products.product_price
           };
         })
       };
       res.render("addProduct", { allProducts: context.allProducts });
     });
-=======
-      // if (err) console.log(err);
-      db.Products.findAll({}).then(function(products){
-        console.log(products[0]);
-        res.render("addProduct", {product: products[0]});
-      });
->>>>>>> 88f8e23dc7f525166b4db039f573e073e359342c
   });
   app.get("/summary", function(req, res) {
     res.render("summary");

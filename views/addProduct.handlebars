@@ -12,34 +12,21 @@
       </div>
     </div>
   </div>
-  <div class="main products_container">
-    <div class="container d-flex justify-content-around">
-        <div class="card" width="200px">
-          <div class="card-header card-header-icon card-header-rose">
-            <div class="card-icon">
-              <i class="fas fa-shopping-basket align-bottom"></i>
-              <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i class="material-icons">add</i></button>
+  <div class="main products_container card-columns">
+      {{#each allProducts}}
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="fas fa-shopping-basket align-bottom"></i>
+                <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i class="material-icons">add</i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">{{this.name}}</h4>
+              <h5>Category: {{this.category}}</h5>
+              <p>Price: ${{this.price}}</p>
             </div>
           </div>
-          <div class="card-body">
-            <h4 class="card-title">{{product.product_name}}</h4>
-            <h5>{{product.product_description}}</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates iste, tempore consequatur perferendis
-              fugiat nulla facere nemo. Ex nesciunt quasi ipsa blanditiis recusandae reprehenderit quo.</p>
-          </div>
-        </div>
-    </div>
+      {{/each}}
   </div>
 </div>
-<<<<<<< HEAD
-
-<ul>
-  {{#each allProducts}}
-  <li>id: {{this.id}} name: {{this.name}}</li>
-  {{/each}}
-</ul>
-<script src="/js/index.js"></script>
-=======
-<script src="/js/index.js"></script>
-<script src="/js/products.js"></script>
->>>>>>> 88f8e23dc7f525166b4db039f573e073e359342c

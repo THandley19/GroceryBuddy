@@ -3,12 +3,8 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var session = require("express-session");
-<<<<<<< HEAD
 var passport = require("./config/passport");
 
-=======
-var passport = require("passport")
->>>>>>> 88f8e23dc7f525166b4db039f573e073e359342c
 var app = express();
 var PORT = process.env.PORT || 3000;
 

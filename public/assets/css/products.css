@@ -6,11 +6,16 @@ body {
     margin: 3rem;
     padding: 2rem;
     position: relative;
-    top: 6rem;
+    top: 3rem;
+}
+
+.card_container {
+    max-width: 200px;
 }
 
 .card {
-    margin: 1rem;
+    flex-basis: 20%;
+    margin: 3rem;
 }
 
 .search_container {
@@ -21,8 +26,4 @@ body {
 
 .card-icon {
     font-size: 1.25rem;
-}
-
-.card {
-    flex-basis: 25rem;
 }
