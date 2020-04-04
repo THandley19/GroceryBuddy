@@ -12,6 +12,11 @@ module.exports = function(sequelize, DataTypes) {
     user_address_state: DataTypes.STRING,
     user_address_zip: DataTypes.STRING,
     email: DataTypes.STRING,
+    is_vendor: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: 0
+    },
+    vendor_id: DataTypes.INTEGER,
     user_password: DataTypes.STRING
   });
 
