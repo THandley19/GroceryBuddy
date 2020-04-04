@@ -3,7 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var session = require("express-session");
-
+var passport = require("passport")
 var app = express();
 var PORT = process.env.PORT || 3000;
 
