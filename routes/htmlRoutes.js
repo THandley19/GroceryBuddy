@@ -44,7 +44,17 @@ module.exports = function(app) {
   });
   // Load products page
   app.get("/products", function(req, res) {
-    res.render("addProduct", { layout: "logged_in" });
+    db.Products.findAll({}).then(function(products) {
+      var context = {
+        allProducts: products.map(function(products) {
+          return {
+            id: products.id,
+            name: products.product_name
+          };
+        })
+      };
+      res.render("addProduct", { allProducts: context.allProducts });
+    });
   });
   app.get("/summary", function(req, res) {
     res.render("summary");
