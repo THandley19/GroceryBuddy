@@ -10,8 +10,7 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/5cc434ff75.js" crossorigin="anonymous"></script>
 
@@ -23,14 +22,12 @@
 </head>
 
 <body class="landing-page sidebar-collapse">
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
-    id="sectionsNav">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="#">
           Grocery Buddy </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-          aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
@@ -93,6 +90,23 @@
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.0.7" type="text/javascript"></script>
   <script src="/public/assets/js/products.js"></script>
+  <script>
+    $("#productSearch").on("click", function(event) {
+
+      var product = $("#searchValue").val().trim();
+      event.preventDefault();
+      $(".products_container").empty();
+      $.ajax("/api/products/" + product, {
+        type: "GET",
+      }).then(
+        function(res) {
+          $(".products_container").empty();
+          console.log(res);
+          location.reload();
+        }
+      );
+    });
+  </script>
 </body>
 
 </html>
