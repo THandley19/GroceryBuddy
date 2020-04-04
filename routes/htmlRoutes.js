@@ -47,9 +47,7 @@ module.exports = function(app) {
       // if (err) console.log(err);
       db.Products.findAll({}).then(function(products){
         console.log(products[0]);
-  
-        
-        res.render("addProduct", products[0]);
+        res.render("addProduct", {product: products[0]});
       });
   });
   app.get("/summary", function(req, res) {
