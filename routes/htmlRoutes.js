@@ -1,22 +1,39 @@
-// var db = require("../models");
+var db = require("../models");
+var passport = require("../config/passport.js");
 
 module.exports = function(app) {
   // Load home page
   app.get("/", function(req, res) {
     res.render("index");
   });
-  // Load page with user sign up form
+
+  // user sign up
   app.get("/user-sign-up", function(req, res) {
     res.render("userSignUp");
   });
-  // Load page with user sign up form
+  app.post(
+    "/user-sign-up",
+    passport.authenticate("local-signup", {
+      successRedirect: "/user-account",
+      failureRedirect: "/user-sign-up"
+    })
+  );
+  // Load page with vendor sign up form
   app.get("/vendor-sign-up", function(req, res) {
     res.render("vendorSignUp");
   });
-  // Load login page
-  app.get("/login", function(req, res) {
-    res.render("login");
-  });
+  // user login
+  app
+    .route("/login")
+    .get(function(req, res) {
+      res.render("login");
+    })
+    .post(
+      passport.authenticate("local-login", {
+        successRedirect: "/user-account",
+        failureRedirect: "/login"
+      })
+    );
   // Load user account page
   app.get("/user-account", function(req, res) {
     res.render("userAccountPage");
@@ -32,16 +49,11 @@ module.exports = function(app) {
   app.get("/summary", function(req, res) {
     res.render("summary");
   });
-  // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function(
-  //     dbExample
-  //   ) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
+  // logout of session
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/login");
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
