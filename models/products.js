@@ -27,12 +27,13 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-  
-    // Products.associate = function(models) {
-    //   Products.hasMany(models.Post, {
-    //     onDelete: "cascade"
-    //   });
-    // };
-  
+
+    Products.associate = models => {
+      Products.belongsTo(models.Vendors, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    }
     return Products;
   };
