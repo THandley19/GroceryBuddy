@@ -60,6 +60,29 @@ module.exports = function(app) {
       res.render("addProduct", { allProducts: context.allProducts });
     });
   });
+  app.get("/products/search", function(req, res) {
+    let {term} = req.query; 
+    db.Products.findAll({
+      where: {
+        product_name: { [db.Sequelize.Op.like]: "%" + term + "%"}
+      }
+    }).then(function(products) {
+      var context = {
+        allProducts: products.map(function(products) {
+          return {
+            id: products.id,
+            name: products.product_name,
+            category: products.product_category,
+            sub_category: products.product_subcategory,
+            brand: products.product_brand,
+            price: products.product_price
+          };
+        })
+      };
+      res.render("addProduct", { allProducts: context.allProducts });
+    }).catch(err => console.log(err));
+  });
+
   app.get("/summary", function(req, res) {
     res.render("summary");
   });
