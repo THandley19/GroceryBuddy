@@ -12,11 +12,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Vendors.associate = function(models) {
-    Vendors.hasMany(models.Products, {
-      onDelete: "cascade"
-    });
-  };
+  // Vendors.associate = function(models) {
+  //   Vendors.hasMany(models.Products, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return Vendors;
 };

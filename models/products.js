@@ -17,19 +17,11 @@ module.exports = function(sequelize, DataTypes) {
       product_brand: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      product_vendor_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      product_price: {
-        type: DataTypes.DECIMAL(5,2),
-        allowNull: false
       }
     });
 
-    Products.associate = function(models) {
-      Products.belongsTo(models.Vendors);
-    };
+    // Products.associate = function(models) {
+    //   Products.belongsTo(models.Vendors);
+    // };
     return Products;
   };

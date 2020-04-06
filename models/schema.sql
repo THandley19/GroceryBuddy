@@ -77,7 +77,7 @@ CREATE TABLE user
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP,
     PRIMARY KEY
-      (id),
+      (id)
     -- FOREIGN KEY
     --   (product_vendor_id) REFERENCES vendors
     --   (id)
@@ -91,7 +91,7 @@ CREATE TABLE user
         (255) not null,
     list_user_id int,
     PRIMARY KEY
-        (id),
+        (id)
     -- FOREIGN KEY
     --     (list_user_id) REFERENCES users
     --     (id)
@@ -106,7 +106,7 @@ CREATE TABLE user
     quantity_ordered int,
     list_id int, 
     PRIMARY KEY
-          (id),
+          (id)
     -- FOREIGN KEY
     --       (product_id) REFERENCES products
     --       (id), 

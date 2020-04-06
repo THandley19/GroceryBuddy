@@ -14,7 +14,7 @@ UPDATE users SET is_vendor = 1, vendor_id = 1 WHERE id = 1;
 UPDATE users SET is_vendor = 1, vendor_id = 2 WHERE id = 2;
 UPDATE users SET is_vendor = 1, vendor_id = 3 WHERE id = 3;
 
-INSERT INTO products (product_name, product_description, product_category, product_subcategory, product_brand, product_vendor_id, product_price)
+INSERT INTO products (product_name, product_description, product_category, product_subcategory, product_brand)
 VALUES ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','1','5.49'),
 ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','2','6'),
 ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','3','4.99'),

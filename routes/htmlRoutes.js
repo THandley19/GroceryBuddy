@@ -44,9 +44,7 @@ module.exports = function(app) {
   });
   // Load products page
   app.get("/products", function(req, res) {
-    db.Products.findAll({
-      include: [vendor]
-    }).then(function(products) {
+    db.Products.findAll({}).then(function(products) {
       var context = {
         allProducts: products.map(function(products) {
           return {
@@ -79,8 +77,7 @@ module.exports = function(app) {
             name: products.product_name,
             category: products.product_category,
             sub_category: products.product_subcategory,
-            brand: products.product_brand,
-            price: products.product_price
+            brand: products.product_brand
           };
         })
       };
