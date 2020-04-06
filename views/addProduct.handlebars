@@ -1,84 +1,89 @@
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="#">
-          Grocery Buddy </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="/login" class="nav-link">
-              Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user-sign-up">
-              Sign-Up
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/vendor-sign-up">
-              Vendor Registration
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#">
-              <i id="add" data-toggle="modal" data-target="#signupModal" class="material-icons">shopping_cart</i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100"
+  id="sectionsNav">
   <div class="container">
-    <div class="container search_container">
-      <div class="row">
-        <div class="col-sm-12">
-          <form class="form" action="/products/search">
-            <div class="input-group">
-              <label class="sr-only" for="search">Search</label>
-              <input type="search" class="form-control mb-2 mr-sm-2" id="searchValue" placeholder="Search for products" name="term">
-              <button type="submit" class="btn btn-primary btn-fab btn-fab-mini btn-round float-right" id="productSearch"><i class="material-icons">search</i></button>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div class="navbar-translate">
+      <a class="navbar-brand" href="#">
+        Grocery Buddy </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
-    <div class="main products_container card-columns">
-      {{#each allProducts}}
-        <div class="card">
-          <div class="card-header card-header-icon card-header-rose">
-            <div class="card-icon">
-              <i class="fas fa-shopping-basket align-bottom"></i>
-              <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i id="add" data-status="notAdded" class="material-icons">add</i></button>
-            </div>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">{{this.name}}</h4>
-            <h5>Category: {{this.category}}</h5>
-            <p>Price: ${{this.price}}</p>
-            <p>Store: {{this.vendor}}</p>
-          </div>
-        </div>
-      {{/each}}
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/login" class="nav-link">
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user-sign-up">
+            Sign-Up
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/vendor-sign-up">
+            Vendor Registration
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#">
+            <i id="add" data-toggle="modal" data-target="#signupModal" class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+<div class="container">
+  <div class="container search_container">
+    <div class="row">
+      <div class="col-sm-12">
+        <form class="form" action="/products/search">
+          <div class="input-group">
+            <label class="sr-only" for="search">Search</label>
+            <input type="search" class="form-control mb-2 mr-sm-2" id="searchValue" placeholder="Search for products"
+              name="term">
+            <button type="submit" class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"
+              id="productSearch"><i class="material-icons">search</i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="main products_container card-columns">
+    {{#each allProducts}}
+    <div class="card">
+      <div class="card-header card-header-icon card-header-rose">
+        <div class="card-icon">
+          <i class="fas fa-shopping-basket align-bottom"></i>
+          <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"><i id="add" data-status="notAdded"
+              class="material-icons">add</i></button>
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">{{this.name}}</h4>
+        <h5>Category: {{this.category}}</h5>
+        <p>Price: ${{this.price}}</p>
+        <p>Store: {{this.vendorsId}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-signup" role="document">
     <div class="modal-content">
       <div class="card card-signup card-plain">
         <div class="modal-header">
           <h5 class="modal-title card-title">Register</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <i class="material-icons">clear</i>
+            <i class="material-icons">clear</i>
           </button>
         </div>
         <div class="modal-body">
@@ -91,7 +96,7 @@
                 <div class="description">
                   <h4 class="info-title">Marketing</h4>
                   <p class="description">
-                  We've created the marketing campaign of the website. It was a very interesting collaboration.
+                    We've created the marketing campaign of the website. It was a very interesting collaboration.
                   </p>
                 </div>
               </div>
@@ -103,7 +108,7 @@
                 <div class="description">
                   <h4 class="info-title">Fully Coded in HTML5</h4>
                   <p class="description">
-                  We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                    We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
                   </p>
                 </div>
               </div>
@@ -115,7 +120,7 @@
                 <div class="description">
                   <h4 class="info-title">Built Audience</h4>
                   <p class="description">
-                  There is also a Fully Customizable CMS Admin Dashboard for this product.
+                    There is also a Fully Customizable CMS Admin Dashboard for this product.
                   </p>
                 </div>
               </div>
@@ -139,44 +144,44 @@
                 <div class="card-body">
                   <div class="form-group">
                     <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">face</i>
-                        </span>
-                        <input type="text" class="form-control" placeholder="First Name...">
+                      <span class="input-group-addon">
+                        <i class="material-icons">face</i>
+                      </span>
+                      <input type="text" class="form-control" placeholder="First Name...">
                     </div>
                   </div>
 
-                <div class="form-group">
-                  <div class="input-group">
+                  <div class="form-group">
+                    <div class="input-group">
                       <span class="input-group-addon">
-                          <i class="material-icons">email</i>
+                        <i class="material-icons">email</i>
                       </span>
                       <input type="text" class="form-control" placeholder="Email...">
+                    </div>
                   </div>
-                </div>
 
-                <div class="form-group">
-                  <div class="input-group">
+                  <div class="form-group">
+                    <div class="input-group">
                       <span class="input-group-addon">
-                          <i class="material-icons">lock_outline</i>
+                        <i class="material-icons">lock_outline</i>
                       </span>
                       <input type="password" placeholder="Password..." class="form-control" />
+                    </div>
                   </div>
-                </div>
 
-                <div class="form-check">
-                  <label class="form-check-label">
+                  <div class="form-check">
+                    <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" checked>
                       <span class="form-check-sign">
-                          <span class="check"></span>
+                        <span class="check"></span>
                       </span>
                       I agree to the <a href="#something">terms and conditions</a>.
-                  </label>
+                    </label>
+                  </div>
                 </div>
+                <div class="modal-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
                 </div>
-              <div class="modal-footer justify-content-center">
-              <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
-              </div>
               </form>
             </div>
           </div>
