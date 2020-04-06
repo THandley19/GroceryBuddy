@@ -28,12 +28,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    Products.associate = models => {
-      Products.belongsTo(models.Vendors, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    }
+    Products.associate = function(models) {
+      Products.belongsTo(models.Vendors);
+    };
     return Products;
   };

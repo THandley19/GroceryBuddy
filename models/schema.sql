@@ -56,9 +56,9 @@ CREATE TABLE user
     (id)
  );
 
-    ALTER TABLE users ADD FOREIGN KEY (vendor_id) REFERENCES vendors(id);
+    -- ALTER TABLE users ADD FOREIGN KEY (vendor_id) REFERENCES vendors(id);
 
-    ALTER TABLE vendors ADD FOREIGN KEY (user_vendor_id) REFERENCES users(id);
+    -- ALTER TABLE vendors ADD FOREIGN KEY (user_vendor_id) REFERENCES users(id);
 
     CREATE TABLE products
     (
@@ -74,14 +74,13 @@ CREATE TABLE user
       (255),
     product_brand varchar
       (255) not null,
-    product_vendor_id int,
-    product_price decimal
-      (5,2) not null,
+    createdAt TIMESTAMP,
+    updatedAt TIMESTAMP,
     PRIMARY KEY
       (id),
-    FOREIGN KEY
-      (product_vendor_id) REFERENCES vendors
-      (id)
+    -- FOREIGN KEY
+    --   (product_vendor_id) REFERENCES vendors
+    --   (id)
 );
 
       CREATE TABLE lists
@@ -93,9 +92,9 @@ CREATE TABLE user
     list_user_id int,
     PRIMARY KEY
         (id),
-    FOREIGN KEY
-        (list_user_id) REFERENCES users
-        (id)
+    -- FOREIGN KEY
+    --     (list_user_id) REFERENCES users
+    --     (id)
  );
 
 
@@ -108,12 +107,12 @@ CREATE TABLE user
     list_id int, 
     PRIMARY KEY
           (id),
-    FOREIGN KEY
-          (product_id) REFERENCES products
-          (id), 
-    FOREIGN KEY
-          (list_id) REFERENCES lists
-          (id) 
+    -- FOREIGN KEY
+    --       (product_id) REFERENCES products
+    --       (id), 
+    -- FOREIGN KEY
+    --       (list_id) REFERENCES lists
+    --       (id) 
  );
 
 

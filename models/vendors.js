@@ -1,6 +1,3 @@
-let Products = require('./products');
-let db = require('../models')
-
 module.exports = function(sequelize, DataTypes) {
   var Vendors = sequelize.define("Vendors", {
     id: {
@@ -15,16 +12,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Vendors.associate = models => {
+  Vendors.associate = function(models) {
     Vendors.hasMany(models.Products, {
       onDelete: "cascade"
     });
-  }
-
-  Products.hasOne(models.Vendors, {
-    onDelete: "cascade"
-  });
-
+  };
 
   return Vendors;
 };
