@@ -4,7 +4,10 @@
     "password": "password",
     "database": "grocerybuddy",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "timestamps": false
+    }
   },
   "test": {
     "username": "rob",
