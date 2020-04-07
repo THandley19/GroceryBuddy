@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "rob",
+    "username": "root",
     "password": "password",
     "database": "grocerybuddy",
     "host": "localhost",
@@ -10,7 +10,7 @@
     }
   },
   "test": {
-    "username": "rob",
+    "username": "root",
     "password": "password",
     "database": "grocerybuddy",
     "host": "localhost",
