@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     user_address_state: DataTypes.STRING,
     user_address_zip: DataTypes.STRING,
     email: DataTypes.STRING,
+    is_store: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: 0
+    },
     user_password: DataTypes.STRING
   });
 
@@ -26,5 +30,21 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
+
+  User.associate = function(models) {
+    User.hasOne(models.Stores, {
+      foreignKey: {
+        allowNull: false
+      },
+      onDelete: "cascade"
+    });
+    User.hasOne(models.Orders, {
+      foreignKey: {
+        allowNull: false
+      },
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };

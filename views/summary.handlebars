@@ -1,1 +1,233 @@
-<h1>This is the order summary page</h1>
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100"
+  id="sectionsNav">
+  <div class="container">
+    <div class="navbar-translate">
+      <a class="navbar-brand" href="#">
+        Grocery Buddy </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{#if current_user}}
+        <li class="nav-item">Hello, {{current_user.first_name}} {{current_user.last_name}}</li>
+        <li class="nav-item"><a href="/logout" class="nav-link">
+            Log Out
+          </a></li>
+        {{else}}
+        <li class="nav-item"><a href="/login" class="nav-link">
+            Login
+          </a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user-sign-up">
+            Sign-Up
+          </a>
+        </li>
+        {{/if}}
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#">
+            <i id="add" data-toggle="modal" data-target="#signupModal" class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="wrapper">
+  <h3>Here are the best best prices in your area:</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-rose">
+          <h3 class="text-center">Publix</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Your Total is:</h4>
+          <h5 id="totalCost">${{totalcost.[0]}}</h5>
+          <button data-toggle="modal" data-target="#CancelOrderModal" class="btn btn-danger btn-round">Cancel
+            Order</button>
+          <button data-toggle="modal" data-target="#PlaceOrderModal1" class="btn btn-primary btn-round">Place
+            Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-rose">
+          <h3 class="text-center">Wal-Mart</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Your Total is:</h4>
+          <h5 id="totalCost">${{totalcost.[1]}}</h5>
+          <button data-toggle="modal" data-target="#CancelOrderModal" class="btn btn-danger btn-round">Cancel
+            Order</button>
+          <button data-toggle="modal" data-target="#PlaceOrderModal2" class="btn btn-primary btn-round">Place
+            Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-rose">
+          <h3 class="text-center">Aldi</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Your Total is:</h4>
+          <h5 id="totalCost">${{totalcost.[2]}}</h5>
+          <button data-toggle="modal" data-target="#CancelOrderModal" class="btn btn-danger btn-round">Cancel
+            Order</button>
+          <button data-toggle="modal" data-target="#PlaceOrderModal3" class="btn btn-primary btn-round">Place
+            Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{!-- publix --}}
+<div class="modal fade" id="PlaceOrderModal1" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-signup" role="document">
+    <div class="modal-content">
+      <div class="card card-signup card-plain">
+        <div class="modal-header">
+          <h5 class="modal-title card-title">Order Placed!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="info info-horizontal" style="padding: 0;">
+              <div class="icon icon-rose">
+                <i class="material-icons">store</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your Store: Publix</h4>
+              </div>
+              <div class="icon icon-rose">
+                <i class="material-icons">monetization_on</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your Total: ${{totalcost.[0]}}</h4>
+              </div>
+              <div class="icon icon-rose">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your order will be available in 1 hour!</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- walmart --}}
+<div class="modal fade" id="PlaceOrderModal2" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-signup" role="document">
+    <div class="modal-content">
+      <div class="card card-signup card-plain">
+        <div class="modal-header">
+          <h5 class="modal-title card-title">Order Placed!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="info info-horizontal" style="padding: 0;">
+              <div class="icon icon-rose">
+                <i class="material-icons">store</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your Store: Wal-Mart</h4>
+              </div>
+              <div class="icon icon-rose">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your order will be available in 1 hour!</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- aldi --}}
+<div class="modal fade" id="PlaceOrderModal3" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-signup" role="document">
+    <div class="modal-content">
+      <div class="card card-signup card-plain">
+        <div class="modal-header">
+          <h5 class="modal-title card-title">Order Placed!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="info info-horizontal" style="padding: 0;">
+              <div class="icon icon-rose">
+                <i class="material-icons">store</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your Store: Aldi</h4>
+              </div>
+              <div class="icon icon-rose">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your order will be available in 1 hour!</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="CancelOrderModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-signup" role="document">
+    <div class="modal-content">
+      <div class="card card-signup card-plain">
+        <div class="modal-header">
+          <h5 class="modal-title card-title">Cancel Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="info info-horizontal" style="padding: 0;">
+              <div class="icon icon-rose">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <div class="description">
+                <p id="productsInfo">
+                  Are you sure you want to cancel your order?
+                  <ul class="list-group" id="productContainer"></ul>
+                </p>
+                <form action="/products">
+                  <button class="btn btn-danger btn-round" id="cancelOrder">Yes</button>
+                </form>
+                <form class="form" action="/summary">
+                  <button class="btn btn-primary btn-round">No</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
