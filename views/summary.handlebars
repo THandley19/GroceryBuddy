@@ -1,35 +1,170 @@
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="#">
-          Grocery Buddy </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="/login" class="nav-link">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100" id="sectionsNav">
+  <div class="container">
+    <div class="navbar-translate">
+      <a class="navbar-brand" href="#">
+        Grocery Buddy </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        {{#if current_user}}
+          <li class="nav-item">{{current_user.first_name}} {{current_user.last_name}}</li>
+          <li class="nav-item"><a href="/logout" class="nav-link">
+              Log Out
+            </a></li>
+        {{else}}
+          <li class="nav-item"><a href="/login" class="nav-link">
               Login
-            </a>
-          </li>
+            </a></li>
           <li class="nav-item">
             <a class="nav-link" href="/user-sign-up">
               Sign-Up
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/vendor-sign-up">
-              Vendor Registration
-            </a>
-          </li>
-        </ul>
+        {{/if}}
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/vendor-sign-up">
+            Vendor Registration
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#">
+            <i id="add" data-toggle="modal" data-target="#signupModal" class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="wrapper">
+  <h3>Here are the best best prices in your area:</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-rose">
+          <h3 class="text-center">Publix</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Here is the Icon</h4>
+          <ul class="list-group">
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+          </ul>
+          <p id="totalCost">Total Cost: $96.00</p>
+          <button data-toggle="modal" data-target="#CancelOrderModal" class="btn btn-danger btn-round">Cancel Order</button>
+          <button data-toggle="modal" data-target="#PlaceOrderModal" class="btn btn-primary btn-round">Place Order</button>
+        </div>
       </div>
     </div>
-  </nav>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-rose">
+          <h3 class="text-center">Publix</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Here is the Icon</h4>
+          <ul class="list-group">
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+          </ul>
+          <p id="totalCost">Total Cost: $96.00</p>
+          <button data-toggle="modal" data-target="#CancelOrderModal" class="btn btn-danger btn-round">Cancel Order</button>
+          <button data-toggle="modal" data-target="#PlaceOrderModal" class="btn btn-primary btn-round">Place Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-rose">
+          <h3 class="text-center">Publix</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Here is the Icon</h4>
+          <ul class="list-group">
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+            <li class="list-group-item">Item</li>
+          </ul>
+          <p id="totalCost">Total Cost: $96.00</p>
+          <button data-toggle="modal" data-target="#CancelOrderModal" class="btn btn-danger btn-round">Cancel Order</button>
+          <button data-toggle="modal" data-target="#PlaceOrderModal" class="btn btn-primary btn-round">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1>This is the order summary page</h1>
+<div class="modal fade" id="PlaceOrderModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-signup" role="document">
+    <div class="modal-content">
+      <div class="card card-signup card-plain">
+        <div class="modal-header">
+          <h5 class="modal-title card-title">Order Placed!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="info info-horizontal" style="padding: 0;">
+              <div class="icon icon-rose">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <div class="description">
+                <h4 class="info-title">Your order will be available in 1 hour!</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="CancelOrderModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-signup" role="document">
+    <div class="modal-content">
+      <div class="card card-signup card-plain">
+        <div class="modal-header">
+          <h5 class="modal-title card-title">Cancel Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="info info-horizontal" style="padding: 0;">
+              <div class="icon icon-rose">
+                <i class="material-icons">shopping_cart</i>
+              </div>
+              <div class="description">
+                <p id="productsInfo">
+                  Are you sure you want to cancel your order?
+                  <ul class="list-group" id="productContainer"></ul>
+                </p>
+                <button class="btn btn-danger btn-round">Yes</button>
+                <form class="form" action="/summary">
+                  <button class="btn btn-primary btn-round">No</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
