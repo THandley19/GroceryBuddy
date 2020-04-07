@@ -172,6 +172,8 @@ module.exports = function(app) {
                 totalcost.push(
                   Math.round((total + Number.EPSILON) * 100) / 100
                 );
+                console.log(totalcost);
+    
                 res.render("summary", { totalcost: totalcost });
               });
             });

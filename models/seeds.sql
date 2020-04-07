@@ -12,7 +12,7 @@ INSERT INTO stores
 VALUES
     ('Publix', '12345 SW Anywhere St', 'Homestead', 'Fl', 33033, 1, 1),
     ('Wal-Mart', '12345 SW Anywhere St', 'Orlando', 'Fl', 32789, 1, 2),
-    ('Aldi', '12345 SW Anywhere St', 'Orlando', 'Fl', 32789, 3);
+    ('Aldi', '12345 SW Anywhere St', 'Orlando', 'Fl', 32789, 1, 3);
 
 INSERT INTO products
     (name, category, brand)
@@ -41,7 +41,7 @@ VALUES
 
 
 
-INSERT INTO storeinventory
+INSERT INTO storeinventories
     (name, price, StoreId)
 VALUES
     ('Kelloggs Fruit Loops', '5.49', '1'),
