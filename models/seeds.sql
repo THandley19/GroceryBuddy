@@ -1,76 +1,39 @@
 USE grocerybuddy;
 
-INSERT INTO users (first_name, last_name, user_address_street, user_address_street2, user_address_city, user_address_state, user_address_zip, email, is_vendor, vendor_id, user_password)
-VALUES ('Robert', 'Finkley', '12345 SW Anywhere St','','Homestead','Fl',33033,'rob@publix.com',0,null,'12345'),
-('Trevor', 'Handley', '12345 SW Anywhere St','','Orlando','Fl',32789,'tevor@walmart.com',0,null,'12345'),
-('Jonathan', 'Ruiz', '12345 SW Anywhere St','','Orlando','Fl',32789,'jonathan@publix.com',0,null,'12345');
+INSERT INTO users (first_name, last_name, user_address_street, user_address_street2, user_address_city, user_address_state, user_address_zip, email, is_store, store_id, user_password)
+VALUES ('Robert', 'Finkley', '12345 SW Anywhere St','','Homestead','Fl',33033,'rob@publix.com',0,1,'12345'),
+('Trevor', 'Handley', '12345 SW Anywhere St','','Orlando','Fl',32789,'tevor@walmart.com',0,2,'12345'),
+('Jonathan', 'Ruiz', '12345 SW Anywhere St','','Orlando','Fl',32789,'jonathan@publix.com',0,3,'12345');
 
-INSERT INTO vendors (vendor_name, vendor_address_street, vendor_address_street2, vendor_address_city, vendor_address_state, vendor_address_zip, vendor_contact_name, vendor_email, vendor_password, user_vendor_id)
-VALUES ('Publix','12345 SW Anywhere St','','Homestead','Fl',33033,'Robert Finkley','rob@publix.com','12345',1),
-    ('Wal-Mart','12345 SW Anywhere St','','Orlando','Fl',32789,'Trevor Handley','trevor@walmart.com','12345',2),
-    ('Aldi','12345 SW Anywhere St','','Orlando','Fl',32789,'Jonathan Ruiz','jonathan@aldi.com','12345',3);
+INSERT INTO store (name, address, city, state, zip, delivers)
+VALUES ('Publix','12345 SW Anywhere St','Homestead','Fl',33033,1),
+    ('Wal-Mart','12345 SW Anywhere St','Orlando','Fl',32789,1),
+    ('Aldi','12345 SW Anywhere St','Orlando','Fl',32789,0);
 
-UPDATE users SET is_vendor = 1, vendor_id = 1 WHERE id = 1;
-UPDATE users SET is_vendor = 1, vendor_id = 2 WHERE id = 2;
-UPDATE users SET is_vendor = 1, vendor_id = 3 WHERE id = 3;
+-- UPDATE users SET is_vendor = 1, vendor_id = 1 WHERE id = 1;
+-- UPDATE users SET is_vendor = 1, vendor_id = 2 WHERE id = 2;
+-- UPDATE users SET is_vendor = 1, vendor_id = 3 WHERE id = 3;
 
-INSERT INTO products (product_name, product_description, product_category, product_subcategory, product_brand)
-VALUES ('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','1','5.49'),
-('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','2','6'),
-('Kelloggs Fruit Loops','','Breakfast','Cereal','Kelloggs','3','4.99'),
-('Kelloggs Frosted Flakes','','Breakfast','Cereal','Kelloggs','1','5.23'),
-('Kelloggs Frosted Flakes','','Breakfast','Cereal','Kelloggs','2','5.15'),
-('Kelloggs Frosted Flakes','','Breakfast','Cereal','Kelloggs','3','5.54'),
-('Cocoa Puffs Chocolate Cereal','','Breakfast','Cereal','General Mills','1','4.29'),
-('Cocoa Puffs Chocolate Cereal','','Breakfast','Cereal','General Mills','2','4.2'),
-('Cocoa Puffs Chocolate Cereal','','Breakfast','Cereal','General Mills','3','4.23'),
-('Cocoa Pebbles Cereal','','Breakfast','Cereal','Post','1','4.29'),
-('Cocoa Pebbles Cereal','','Breakfast','Cereal','Post','2','4.29'),
-('Cocoa Pebbles Cereal','','Breakfast','Cereal','Post','3','4.29'),
-('Kelloggs Nutri-Grain Soft Baked Apple Cinnamon Breakfast Bars 20.8 oz 16 Ct','','Breakfast','Cereal','Kelloggs','1','4.78'),
-('Kelloggs Nutri-Grain Soft Baked Apple Cinnamon Breakfast Bars 20.8 oz 16 Ct','','Breakfast','Cereal','Kelloggs','1','4.54'),
-('Kelloggs Nutri-Grain Soft Baked Apple Cinnamon Breakfast Bars 20.8 oz 16 Ct','','Breakfast','Cereal','Kelloggs','1','4.99'),
-('Hormel Natural Hardwood Smoke Original Bacon','','Meat','','Hormel','1','10.19'),
-('Hormel Natural Hardwood Smoke Original Bacon','','Meat','','Hormel','2','10'),
-('Hormel Natural Hardwood Smoke Original Bacon','','Meat','','Hormel','3','9.89'),
-('Oscar Mayer Bacon','','Meat','','Oscar Mayer','1','8.89'),
-('Oscar Mayer Bacon','','Meat','','Oscar Mayer','2','8.89'),
-('Oscar Mayer Bacon','','Meat','','Oscar Mayer','3','8.89'),
-('Banquet Maple Sausage Links','','Meat','','Banquet','1','2.59'),
-('Banquet Maple Sausage Links','','Meat','','Banquet','2','2.69'),
-('Banquet Maple Sausage Links','','Meat','','Banquet','3','2.49'),
-('No Evil Foods Plant Meat El Zapatista 1 ea BOX','Vegan. Low fat.','Meat','Vegan','No Evil','1','8.49'),
-('No Evil Foods Plant Meat El Zapatista 1 ea BOX','Vegan. Low fat.','Meat','Vegan','No Evil','2','8.59'),
-('No Evil Foods Plant Meat El Zapatista 1 ea BOX','Vegan. Low fat.','Meat','Vegan','No Evil','3','8.29'),
-('Natures Own Butterbread','','Bread','','Natures Own','1','3.79'),
-('Natures Own Butterbread','','Bread','','Natures Own','2','3.69'),
-('Natures Own Butterbread','','Bread','','Natures Own','3','3.88'),
-('Sara Lee Artesano Bakery Bread','','Bread','','Sara Lee','2','3.99'),
-('Sara Lee Artesano Bakery Bread','','Bread','','Sara Lee','3','3.76'),
-('Pepperidge Farm® Farmhouse Pepperidge Farm Farmhouse® Hearty White Bread','','Bread','','Pepperidge Farm','1','4.45'),
-('Pepperidge Farm® Farmhouse Pepperidge Farm Farmhouse® Hearty White Bread','','Bread','','Pepperidge Farm','2','4.55'),
-('Pepperidge Farm® Farmhouse Pepperidge Farm Farmhouse® Hearty White Bread','','Bread','','Pepperidge Farm','3','4.35'),
-('Chips Ahoy! Original Chocolate Chip Cookies','','Snacks','Cookies','Chips Ahoy!','1','3.79'),
-('Chips Ahoy! Original Chocolate Chip Cookies','','Snacks','Cookies','Chips Ahoy!','2','3.65'),
-('Chips Ahoy! Original Chocolate Chip Cookies','','Snacks','Cookies','Chips Ahoy!','3','3.75'),
-('Oreo Chocolate Sandwich Cookies Double Stuf','','Snacks','Cookies','Nabisco','1','3.35'),
-('Oreo Chocolate Sandwich Cookies Double Stuf','','Snacks','Cookies','Nabisco','2','3.3'),
-('Oreo Chocolate Sandwich Cookies Double Stuf','','Snacks','Cookies','Nabisco','3','3.29'),
-('Keebler E.L. Fudge Elfwich Cookies Original','','Snacks','Cookies','Keebler','1','3.89'),
-('Keebler E.L. Fudge Elfwich Cookies Original','','Snacks','Cookies','Keebler','2','3.99'),
-('Keebler E.L. Fudge Elfwich Cookies Original','','Snacks','Cookies','Keebler','3','3.54'),
-('Pepperidge Farm® Montauk® Soft Baked Milk Chocolate Cookies','','Snacks','Cookies','Pepperidge Farm','1','4.29'),
-('Pepperidge Farm® Montauk® Soft Baked Milk Chocolate Cookies','','Snacks','Cookies','Pepperidge Farm','2','4.35'),
-('Pepperidge Farm® Montauk® Soft Baked Milk Chocolate Cookies','','Snacks','Cookies','Pepperidge Farm','3','4.99'),
-('Perdue Carved Chicken Breast Honey Roasted','','Meat','','Perdue','1','3.89'),
-('Perdue Carved Chicken Breast Honey Roasted','','Meat','','Perdue','2','3.79'),
-('Perdue Carved Chicken Breast Honey Roasted','','Meat','','Perdue','3','3.9'),
-('Bumble Bee Premium Chicken Breast with Rib Meat Chunk in Water','','Meat','Canned','Bumble Bee','1','2.09'),
-('Bumble Bee Premium Chicken Breast with Rib Meat Chunk in Water','','Meat','Canned','Bumble Bee','2','2.1'),
-('Bumble Bee Premium Chicken Breast with Rib Meat Chunk in Water','','Meat','Canned','Bumble Bee','3','2.07'),
-('Bumble Bee Premium Tuna in Water','','Meat','Canned','Bumble Bee','1','1.15'),
-('Bumble Bee Premium Tuna in Water','','Meat','Canned','Bumble Bee','2','1.25'),
-('Bumble Bee Premium Tuna in Water','','Meat','Canned','Bumble Bee','3','1.3'),
-('StarKist StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','1','1.15'),
-('StarKist StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','2','1.25'),
-('StarKist StarKist Chunk Light Tuna In Water','','Meat','Canned','StarKist','3','1.3');
+INSERT INTO products (name, category, product_brand)
+VALUES ('Kelloggs Fruit Loops','Breakfast','Kelloggs'),
+('Kelloggs Frosted Flakes','Breakfast','Kelloggs'),
+('Cocoa Puffs Chocolate Cereal','Breakfast','General Mills'),
+('Cocoa Pebbles Cereal','Breakfast','Post'),
+('Kelloggs Nutri-Grain Soft Baked Apple Cinnamon Breakfast Bars 20.8 oz 16 Ct','Breakfast','Kelloggs'),
+('Kelloggs Nutri-Grain Soft Baked Apple Cinnamon Breakfast Bars 20.8 oz 16 Ct','Breakfast','Kelloggs'),
+('Kelloggs Nutri-Grain Soft Baked Apple Cinnamon Breakfast Bars 20.8 oz 16 Ct','Breakfast','Kelloggs'),
+('Hormel Natural Hardwood Smoke Original Bacon','Meat','Hormel'),
+('Oscar Mayer Bacon','Meat','Oscar Mayer'),
+('Banquet Maple Sausage Links','Meat','Banquet'),
+('No Evil Foods Plant Meat El Zapatista 1 ea BOX','Meat','No Evil'),
+('Natures Own Butterbread','Bread','Natures Own'),
+('Pepperidge FarmÃ‚Â® Farmhouse Pepperidge Farm FarmhouseÃ‚Â® Hearty White Bread','Bread','Pepperidge Farm'),
+('Chips Ahoy! Original Chocolate Chip Cookies','Snacks','Chips Ahoy!'),
+('Oreo Chocolate Sandwich Cookies Double Stuf','Snacks','Nabisco'),
+('Keebler E.L. Fudge Elfwich Cookies Original','Snacks','Keebler'),
+('Pepperidge FarmÃ‚Â® MontaukÃ‚Â® Soft Baked Milk Chocolate Cookies','Snacks','Pepperidge Farm'),
+('Perdue Carved Chicken Breast Honey Roasted','Meat','Perdue'),
+('Bumble Bee Premium Chicken Breast with Rib Meat Chunk in Water','Meat','Bumble Bee'),
+('Bumble Bee Premium Tuna in Water','Meat','Bumble Bee'),
+('StarKist StarKist Chunk Light Tuna In Water','Meat','StarKist');
+

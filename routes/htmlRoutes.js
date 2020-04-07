@@ -44,31 +44,25 @@ module.exports = function(app) {
   });
   // Load products page
   app.get("/products", function(req, res) {
-    db.Products.findAll({
-      include: "vendors"
-    }).then(function(products) {
-      console.log(products[0]);
+    db.Products.findAll({}).then(function(products) {
       var context = {
         allProducts: products.map(function(products) {
           return {
             id: products.id,
-            name: products.product_name,
-            category: products.product_category,
-            sub_category: products.product_subcategory,
-            brand: products.product_brand,
-            vendor: products.product_vendor_id,
-            price: products.product_price
+            name: products.name,
+            category: products.category,
+            brand: products.brand
           };
         })
       };
-      res.render("addProduct", { allProducts: context.allProducts });
+      res.render("addProduct", { allProducts: context.allProducts, current_user: req.user });
     });
   });
   app.get("/products/search", function(req, res) {
-    let { term } = req.query;
+    let {term} = req.query;
     db.Products.findAll({
       where: {
-        product_name: { [db.Sequelize.Op.like]: "%" + term + "%" }
+        name: { [db.Sequelize.Op.like]: "%" + term + "%" }
       }
     })
       .then(function(products) {
@@ -76,15 +70,12 @@ module.exports = function(app) {
           allProducts: products.map(function(products) {
             return {
               id: products.id,
-              name: products.product_name,
-              category: products.product_category,
-              sub_category: products.product_subcategory,
-              brand: products.product_brand,
-              price: products.product_price
+              name: products.name,
+              category: products.category,
+              brand: products.brand
             };
           })
         };
-
         res.render("addProduct", { allProducts: context.allProducts });
       })
       .catch(err => console.log(err));

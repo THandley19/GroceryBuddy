@@ -1,47 +1,36 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.post("/api/users", function(req, res) {});
-
-  // Create a new example
-  // app.post("/api/examples", function(req, res) {
-  //   db.Example.create(req.body).then(function(dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
-  // // Delete an example by id
-  // app.delete("/api/examples/:id", function(req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(
-  //     dbExample
-  //   ) {
-  //     res.json(dbExample);
-  //   });
-  // });
-  app.get("/api/products/:product", function(req, res) {
-    let searchTerm = req.params.product;
-    db.Products.findAll({
+ 
+  app.post("/api/orderproducts", function(req, res) {
+    let product = req.body.title;
+    console.log(product);
+    db.Orders.findOne({
       where: {
-        product_name: {
-            [db.Sequelize.Op.substring]: searchTerm
-        }
+        UserId: req.body.UserId,
+        status: "Pending"
       }
-    }).then(function(products) {
-      var context = {
-        allMatchingProducts: products.map(function(products) {
-          return {
-            id: products.id,
-            name: products.product_name,
-            category: products.product_category,
-            sub_category: products.product_subcategory,
-            brand: products.product_brand,
-            price: products.product_price
-          };
+    }).then(function(order) {
+      db.OrderProducts.Create({
+        OrderId: order.id,
+        title: req.body.title
+      }).then(function(op) {
+        db.Orders.Update({
+          order_items: sequelize.literal('order_items + 1')
+        }, {
+          where: {
+            id: order.id
+          }
+        }).then(function(updatedorder) {
+          db.OrderProducts.findAll({
+            where: {
+              OrderId: order.id
+            }
+          }).then(function(products) {
+            res.json(products);
+          })
         })
-      };
-    //   res.render("addProduct", { allMatchingProducts: context.allMatchingProducts });
-    res.json(products);
-    });
+      })
+    })
   });
 };
-

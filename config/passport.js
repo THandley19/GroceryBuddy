@@ -29,6 +29,14 @@ passport.use(
           email: req.body.email,
           user_password: req.body.password
         }).then(function(dbUser) {
+          //CREATE NEW ORDER
+          //WILL HAVE CONDITIONAL
+          db.Orders.create({
+            status: "Pending",
+            order_items: 0,
+            UserId: dbUser.id
+          })
+          
           return done(null, dbUser);
         });
       });
