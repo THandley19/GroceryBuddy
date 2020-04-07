@@ -35,6 +35,7 @@
     "handlebars": "^4.7.6",
     "mocha": "^6.1.4",
     "nodemon": "^2.0.2",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "pryjs": "^1.0.3"
   }
 }

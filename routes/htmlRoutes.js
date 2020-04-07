@@ -86,10 +86,10 @@ module.exports = function(app) {
   });
 
   app.get("/summary", function(req, res) {
-    let totalcost = {};
+    let totalcost = [];
     db.Orders.findAll({
       where: {
-        UserId: req.body.UserId,
+        UserId: req.user.id,
         status: "Pending"
       }
     }).then(function(order) {
@@ -102,7 +102,7 @@ module.exports = function(app) {
           for (let i = 0; i < stores.length; i++) {
             let store = stores[i];
             let total = 0;
-            totalcost.stores[i].name = total;
+            // totalcost.stores[i].name = total;
             db.StoreInventory.findAll({
               where: {
                 StoreId: store.id
@@ -113,15 +113,21 @@ module.exports = function(app) {
                 for (let i = 0; i < products.length; i++) {
                   let product = products[i].ProductTitle;
                   if (product === inventoryItem.name) {
-                    total += inventoryItem.price;
+                    let price = parseFloat(inventoryItem.price);
+                    console.log(price);
+                    total += price;
+                    console.log(
+                      "currentTotal: " +
+                        Math.round((total + Number.EPSILON) * 100) / 100
+                    );
                   }
                 }
               }
-
+              totalcost.push(Math.round((total + Number.EPSILON) * 100) / 100);
+              console.log(totalcost);
+              // res.render => stores, total cost
               // we compared each product to the stores inventory product
             });
-            totalcost.stores[i].name = total;
-            console.log(totalcost);
           }
         });
         // query stores table then query storeinventories table
