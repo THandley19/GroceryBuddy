@@ -8,7 +8,12 @@ $(".card-button").on("click", function() {
     $(this).attr("data-status", "added");
     $(this).addClass("bg-warning");
     $(this).removeClass("bg-primary");
-    
+    $.post("/api/orderproducts", {
+      title: title,
+      UserId: userID
+    }).done(function(data) {
+      productList(data);
+    })
   } else {
     $("#add_" + id).text("add");
     $(this).attr("data-status", "not_added");
@@ -16,7 +21,6 @@ $(".card-button").on("click", function() {
     $(this).removeClass("bg-warning");
     products.splice(products.indexOf($(this).attr("data-title")), 1);
   }
-  productList();
   if (products.length === 0) {
     $("#productsInfo").text("You've got nothing in your cart.");
   } else {
@@ -24,11 +28,12 @@ $(".card-button").on("click", function() {
   }
 });
 
-let productList = function () {
+let productList = function (data) {
+  console.log(data);
   $("#productContainer").empty();
-  for (let i=0; i<products.length;i++) {
+  for (let i=0; i<data.length;i++) {
     let listItem = $("<li class='list-group-item'>");
-    let item = products[i];
+    let item = data[i].ProductTitle;
     listItem.text(item);
     $("#productContainer").append(listItem)
   }

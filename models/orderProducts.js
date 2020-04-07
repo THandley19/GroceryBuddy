@@ -3,9 +3,6 @@ module.exports = function(sequelize, DataTypes) {
       ProductTitle: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      Quantity: {
-        type: DataTypes.INTEGER
       }
     });
   

@@ -62,7 +62,7 @@
         <div class="card-header card-header-icon card-header-rose">
           <div class="card-icon">
             <i class="fas fa-shopping-basket align-bottom"></i>
-            <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right card-button" id="{{this.id}}" data-title="{{this.name}}" data-status="not_added"  data-userID="{{current_user.id}}">
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right card-button" id="{{this.id}}" data-title="{{this.name}}" data-status="not_added"  data-userID="{{this.current_user.id}}">
               <i class="material-icons" id="add_{{this.id}}">add</i></button>
           </div>
         </div>
@@ -99,7 +99,9 @@
                   <ul class="list-group" id="productContainer"></ul>
                 </p>
                 <button class="btn btn-primary btn-round">Cancel Order</button>
-                <button class="btn btn-primary btn-round">Check Out</button>
+                <form class="form" action="/summary">
+                  <button class="btn btn-primary btn-round">Check Out</button>
+                </form>
               </div>
             </div>
           </div>

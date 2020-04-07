@@ -51,7 +51,8 @@ module.exports = function(app) {
             id: products.id,
             name: products.name,
             category: products.category,
-            brand: products.brand
+            brand: products.brand,
+            current_user: req.user 
           };
         })
       };

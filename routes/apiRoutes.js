@@ -3,28 +3,29 @@ var db = require("../models");
 module.exports = function(app) {
  
   app.post("/api/orderproducts", function(req, res) {
-    let product = req.body.title;
+    let product = req.body;
     console.log(product);
-    db.Orders.findOne({
+    db.Orders.findAll({
       where: {
         UserId: req.body.UserId,
         status: "Pending"
       }
     }).then(function(order) {
-      db.OrderProducts.Create({
-        OrderId: order.id,
-        title: req.body.title
+      console.log(order);
+      db.OrderProducts.create({
+        OrderId: order[0].id,
+        ProductTitle: req.body.title
       }).then(function(op) {
-        db.Orders.Update({
-          order_items: sequelize.literal('order_items + 1')
+        db.Orders.update({
+          order_items: db.sequelize.literal('order_items + 1')
         }, {
           where: {
-            id: order.id
+            id: order[0].id
           }
         }).then(function(updatedorder) {
           db.OrderProducts.findAll({
             where: {
-              OrderId: order.id
+              OrderId: order[0].id
             }
           }).then(function(products) {
             res.json(products);
