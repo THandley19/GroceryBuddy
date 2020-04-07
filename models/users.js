@@ -16,7 +16,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     },
-    store_id: DataTypes.INTEGER,
     user_password: DataTypes.STRING
   });
 
