@@ -99,9 +99,16 @@ module.exports = function(app) {
         }
       }).then(function(products) {
         db.Stores.findAll({}).then(function(stores) {
+          let totalcost = [];
           for (let i = 0; i < stores.length; i++) {
             let store = stores[i];
             let total = 0;
+            // store = publix
+            // total = 100
+            // store = aldi
+            // total = 105
+            // store = target
+            // total = 110
             // totalcost.stores[i].name = total;
             db.StoreInventory.findAll({
               where: {
@@ -124,7 +131,7 @@ module.exports = function(app) {
                 }
               }
               totalcost.push(Math.round((total + Number.EPSILON) * 100) / 100);
-              console.log(totalcost);
+
               // res.render => stores, total cost
               // we compared each product to the stores inventory product
             });
@@ -133,7 +140,8 @@ module.exports = function(app) {
         // query stores table then query storeinventories table
       });
     });
-    // res.render("summary");
+    // we cannot access the data of the totalcost array in the front end
+    res.render("summary", { totalcost: totalcost });
   });
   // logout of session
   app.get("/logout", function(req, res) {

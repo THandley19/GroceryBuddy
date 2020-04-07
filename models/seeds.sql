@@ -7,7 +7,7 @@ VALUES
     ('Trevor', 'Handley', '12345 SW Anywhere St', '', 'Orlando', 'Fl', 32789, 'tevor@walmart.com', 2, '12345'),
     ('Jonathan', 'Ruiz', '12345 SW Anywhere St', '', 'Orlando', 'Fl', 32789, 'jonathan@publix.com', 3, '12345');
 
-INSERT INTO store
+INSERT INTO stores
     (name, address, city, state, zip, delivers, UserId)
 VALUES
     ('Publix', '12345 SW Anywhere St', 'Homestead', 'Fl', 33033, 1, 1),
