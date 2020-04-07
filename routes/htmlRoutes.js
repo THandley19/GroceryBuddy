@@ -98,25 +98,42 @@ module.exports = function(app) {
           OrderId: order[0].id
         }
       }).then(function(products) {
-        db.Stores.findAll({}).then(function(stores) {
-          let totalcost = [];
-          for (let i = 0; i < stores.length; i++) {
-            let store = stores[i];
+        db.Stores.findAll({}).then(function(store) {
+          store[0];
+          store[1];
+          store[2];
+
+          db.StoreInventory.findAll({
+            where: {
+              StoreId: store[0].id
+            }
+          }).then(function(storesinv1) {
             let total = 0;
-            // store = publix
-            // total = 100
-            // store = aldi
-            // total = 105
-            // store = target
-            // total = 110
-            // totalcost.stores[i].name = total;
+            for (let j = 0; j < storesinv1.length; j++) {
+              let inventoryItem = storesinv1[j];
+              for (let i = 0; i < products.length; i++) {
+                let product = products[i].ProductTitle;
+                if (product === inventoryItem.name) {
+                  let price = parseFloat(inventoryItem.price);
+                  console.log(price);
+                  total += price;
+                  console.log(
+                    "currentTotal: " +
+                      Math.round((total + Number.EPSILON) * 100) / 100
+                  );
+                }
+              }
+            }
+            totalcost.push(Math.round((total + Number.EPSILON) * 100) / 100);
+
             db.StoreInventory.findAll({
               where: {
-                StoreId: store.id
+                StoreId: store[1].id
               }
-            }).then(function(storesinv) {
-              for (let j = 0; j < storesinv.length; j++) {
-                var inventoryItem = storesinv[j];
+            }).then(function(storesinv2) {
+              let total = 0;
+              for (let j = 0; j < storesinv2.length; j++) {
+                var inventoryItem = storesinv2[j];
                 for (let i = 0; i < products.length; i++) {
                   let product = products[i].ProductTitle;
                   if (product === inventoryItem.name) {
@@ -131,17 +148,37 @@ module.exports = function(app) {
                 }
               }
               totalcost.push(Math.round((total + Number.EPSILON) * 100) / 100);
-
-              // res.render => stores, total cost
-              // we compared each product to the stores inventory product
+              db.StoreInventory.findAll({
+                where: {
+                  StoreId: store[2].id
+                }
+              }).then(function(storesinv3) {
+                let total = 0;
+                for (let j = 0; j < storesinv3.length; j++) {
+                  var inventoryItem = storesinv3[j];
+                  for (let i = 0; i < products.length; i++) {
+                    let product = products[i].ProductTitle;
+                    if (product === inventoryItem.name) {
+                      let price = parseFloat(inventoryItem.price);
+                      console.log(price);
+                      total += price;
+                      console.log(
+                        "currentTotal: " +
+                          Math.round((total + Number.EPSILON) * 100) / 100
+                      );
+                    }
+                  }
+                }
+                totalcost.push(
+                  Math.round((total + Number.EPSILON) * 100) / 100
+                );
+                res.render("summary", { totalcost: totalcost });
+              });
             });
-          }
+          });
         });
-        // query stores table then query storeinventories table
       });
     });
-    // we cannot access the data of the totalcost array in the front end
-    res.render("summary", { totalcost: totalcost });
   });
   // logout of session
   app.get("/logout", function(req, res) {
