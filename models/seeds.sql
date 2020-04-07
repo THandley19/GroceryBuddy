@@ -4,7 +4,7 @@ INSERT INTO users
     (first_name, last_name, user_address_street, user_address_street2, user_address_city, user_address_state, user_address_zip, email, is_store, user_password)
 VALUES
     ('Robert', 'Finkley', '12345 SW Anywhere St', '', 'Homestead', 'Fl', 33033, 'rob@publix.com', 1, '12345'),
-    ('Trevor', 'Handley', '12345 SW Anywhere St', '', 'Orlando', 'Fl', 32789, 'tevor@walmart.com', 2, '12345'),
+    ('Trevor', 'Handley', '12345 SW Anywhere St', '', 'Orlando', 'Fl', 32789, 'trevor@walmart.com', 2, '12345'),
     ('Jonathan', 'Ruiz', '12345 SW Anywhere St', '', 'Orlando', 'Fl', 32789, 'jonathan@publix.com', 3, '12345');
 
 INSERT INTO stores
@@ -29,11 +29,11 @@ VALUES
     ('Banquet Maple Sausage Links', 'Meat', 'Banquet'),
     ('No Evil Foods Plant Meat El Zapatista 1 ea BOX', 'Meat', 'No Evil'),
     ('Natures Own Butterbread', 'Bread', 'Natures Own'),
-    ('Pepperidge FarmÃ‚Â® Farmhouse Pepperidge Farm FarmhouseÃ‚Â® Hearty White Bread', 'Bread', 'Pepperidge Farm'),
+    ('Pepperidge Farm‚ Farmhouse Pepperidge Farm Farmhouse‚ Hearty White Bread', 'Bread', 'Pepperidge Farm'),
     ('Chips Ahoy! Original Chocolate Chip Cookies', 'Snacks', 'Chips Ahoy!'),
     ('Oreo Chocolate Sandwich Cookies Double Stuf', 'Snacks', 'Nabisco'),
     ('Keebler E.L. Fudge Elfwich Cookies Original', 'Snacks', 'Keebler'),
-    ('Pepperidge FarmÃ‚Â® MontaukÃ‚Â® Soft Baked Milk Chocolate Cookies', 'Snacks', 'Pepperidge Farm'),
+    ('Pepperidge Farm‚ Montauk‚ Soft Baked Milk Chocolate Cookies', 'Snacks', 'Pepperidge Farm'),
     ('Perdue Carved Chicken Breast Honey Roasted', 'Meat', 'Perdue'),
     ('Bumble Bee Premium Chicken Breast with Rib Meat Chunk in Water', 'Meat', 'Bumble Bee'),
     ('Bumble Bee Premium Tuna in Water', 'Meat', 'Bumble Bee'),
@@ -76,9 +76,9 @@ VALUES
     ('Natures Own Butterbread', '3.88', '3'),
     ('Sara Lee Artesano Bakery Bread', '3.99', '2'),
     ('Sara Lee Artesano Bakery Bread', '3.76', '3'),
-    ('Pepperidge FarmÂ® Farmhouse Pepperidge Farm FarmhouseÂ® Hearty White Bread', '4.45', '1'),
-    ('Pepperidge FarmÂ® Farmhouse Pepperidge Farm FarmhouseÂ® Hearty White Bread', '4.55', '2'),
-    ('Pepperidge FarmÂ® Farmhouse Pepperidge Farm FarmhouseÂ® Hearty White Bread', '4.35', '3'),
+    ('Pepperidge Farm Farmhouse Pepperidge Farm Farmhouse Hearty White Bread', '4.45', '1'),
+    ('Pepperidge Farm Farmhouse Pepperidge Farm Farmhouse Hearty White Bread', '4.55', '2'),
+    ('Pepperidge Farm Farmhouse Pepperidge Farm Farmhouse Hearty White Bread', '4.35', '3'),
     ('Chips Ahoy! Original Chocolate Chip Cookies', '3.79', '1'),
     ('Chips Ahoy! Original Chocolate Chip Cookies', '3.65', '2'),
     ('Chips Ahoy! Original Chocolate Chip Cookies', '3.75', '3'),
@@ -88,9 +88,9 @@ VALUES
     ('Keebler E.L. Fudge Elfwich Cookies Original', '3.89', '1'),
     ('Keebler E.L. Fudge Elfwich Cookies Original', '3.99', '2'),
     ('Keebler E.L. Fudge Elfwich Cookies Original', '3.54', '3'),
-    ('Pepperidge FarmÂ® MontaukÂ® Soft Baked Milk Chocolate Cookies', '4.29', '1'),
-    ('Pepperidge FarmÂ® MontaukÂ® Soft Baked Milk Chocolate Cookies', '4.35', '2'),
-    ('Pepperidge FarmÂ® MontaukÂ® Soft Baked Milk Chocolate Cookies', '4.99', '3'),
+    ('Pepperidge Farm Montauk Soft Baked Milk Chocolate Cookies', '4.29', '1'),
+    ('Pepperidge Farm Montauk Soft Baked Milk Chocolate Cookies', '4.35', '2'),
+    ('Pepperidge Farm Montauk Soft Baked Milk Chocolate Cookies', '4.99', '3'),
     ('Perdue Carved Chicken Breast Honey Roasted', '3.89', '1'),
     ('Perdue Carved Chicken Breast Honey Roasted', '3.79', '2'),
     ('Perdue Carved Chicken Breast Honey Roasted', '3.9', '3'),

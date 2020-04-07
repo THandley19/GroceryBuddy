@@ -4,7 +4,7 @@ var passport = require("../config/passport.js");
 module.exports = function(app) {
   // Load home page
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", { current_user: req.user });
   });
 
   // user sign up
@@ -172,9 +172,12 @@ module.exports = function(app) {
                 totalcost.push(
                   Math.round((total + Number.EPSILON) * 100) / 100
                 );
-                console.log(totalcost);
-    
-                res.render("summary", { totalcost: totalcost });
+                console.log("Line 175:" + totalcost);
+
+                res.render("summary", {
+                  totalcost: totalcost,
+                  current_user: req.user
+                });
               });
             });
           });

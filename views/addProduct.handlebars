@@ -1,9 +1,11 @@
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100" id="sectionsNav">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg text-dark" color-on-scroll="100"
+  id="sectionsNav">
   <div class="container">
     <div class="navbar-translate">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         Grocery Buddy </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
         <span class="navbar-toggler-icon"></span>
         <span class="navbar-toggler-icon"></span>
@@ -13,25 +15,20 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         {{#if current_user}}
-          <li class="nav-item">{{current_user.first_name}} {{current_user.last_name}}</li>
-          <li class="nav-item"><a href="/logout" class="nav-link">
-              Log Out
-            </a></li>
+        <li class="nav-item">Hello, {{current_user.first_name}} {{current_user.last_name}}</li>
+        <li class="nav-item"><a href="/logout" class="nav-link">
+            Log Out
+          </a></li>
         {{else}}
-          <li class="nav-item"><a href="/login" class="nav-link">
-              Login
-            </a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user-sign-up">
-              Sign-Up
-            </a>
-          </li>
-        {{/if}}
+        <li class="nav-item"><a href="/login" class="nav-link">
+            Login
+          </a></li>
         <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/vendor-sign-up">
-            Vendor Registration
+          <a class="nav-link" href="/user-sign-up">
+            Sign-Up
           </a>
         </li>
+        {{/if}}
         <li class="nav-item">
           <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#">
             <i id="add" data-toggle="modal" data-target="#signupModal" class="material-icons">shopping_cart</i>
@@ -49,8 +46,10 @@
         <form class="form" action="/products/search">
           <div class="input-group">
             <label class="sr-only" for="search">Search</label>
-            <input type="search" class="form-control mb-2 mr-sm-2" id="searchValue" placeholder="Search for products" name="term">
-            <button type="submit" class="btn btn-primary btn-fab btn-fab-mini btn-round float-right" id="productSearch"><i class="material-icons">search</i></button>
+            <input type="search" class="form-control mb-2 mr-sm-2" id="searchValue" placeholder="Search for products"
+              name="term">
+            <button type="submit" class="btn btn-primary btn-fab btn-fab-mini btn-round float-right"
+              id="productSearch"><i class="material-icons">search</i></button>
           </div>
         </form>
       </div>
@@ -58,20 +57,21 @@
   </div>
   <div class="main products_container card-columns">
     {{#each allProducts}}
-      <div class="card product_cards">
-        <div class="card-header card-header-icon card-header-rose">
-          <div class="card-icon">
-            <i class="fas fa-shopping-basket align-bottom"></i>
-            <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right card-button" id="{{this.id}}" data-title="{{this.name}}" data-status="not_added"  data-userID="{{this.current_user.id}}">
-              <i class="material-icons" id="add_{{this.id}}">add</i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">{{this.name}}</h4>
-          <h5>Category: {{this.category}}</h5>
-          <h5>Brand:{{this.brand}}</h5>
+    <div class="card product_cards">
+      <div class="card-header card-header-icon card-header-rose">
+        <div class="card-icon">
+          <i class="fas fa-shopping-basket align-bottom"></i>
+          <button class="btn btn-primary btn-fab btn-fab-mini btn-round float-right card-button" id="{{this.id}}"
+            data-title="{{this.name}}" data-status="not_added" data-userID="{{this.current_user.id}}">
+            <i class="material-icons" id="add_{{this.id}}">add</i></button>
         </div>
       </div>
+      <div class="card-body">
+        <h4 class="card-title">{{this.name}}</h4>
+        <h5>Category: {{this.category}}</h5>
+        <h5>Brand:{{this.brand}}</h5>
+      </div>
+    </div>
     {{/each}}
   </div>
 </div>
