@@ -53,9 +53,14 @@
           </div>
         </form>
       </div>
+      <form action="/products">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg">Reset Search</button>
+        </div>
+      </form>
     </div>
   </div>
-  <div class="main products_container card-columns">
+  <div class=" main products_container card-columns">
     {{#each allProducts}}
     <div class="card product_cards">
       <div class="card-header card-header-icon card-header-rose">
