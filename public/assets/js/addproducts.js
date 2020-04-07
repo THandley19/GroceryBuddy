@@ -20,6 +20,11 @@ $(".card-button").on("click", function() {
     $(this).addClass("bg-primary");
     $(this).removeClass("bg-warning");
     products.splice(products.indexOf($(this).attr("data-title")), 1);
+    $.post("/api/orderproducts/" + title, {
+      UserId: userID
+    }).done(function(data) {
+      productList(data);
+    })
   }
   if (products.length === 0) {
     $("#productsInfo").text("You've got nothing in your cart.");

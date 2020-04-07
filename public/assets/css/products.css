@@ -17,7 +17,10 @@ body {
 .card {
     flex-basis: 20%;
     margin: 3rem;
-    height: 250px;
+}
+
+.product_cards {
+    height: 250px!important;
 }
 
 .search_container {
