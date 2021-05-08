@@ -32,7 +32,7 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "handlebars": "^4.7.6",
+    "handlebars": "^4.7.7",
     "mocha": "^6.1.4",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
